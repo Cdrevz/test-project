@@ -17,8 +17,13 @@ def parse_page(html: HTMLParser):
     matches_links = []
     table = html.css("table.tblContent")
     for link in html.css("td.tdOdd.standardPaddingTop a"):
-        matches_links.append(link.attributes["href"].strip())
+        href = link.attributes["href"]
+        # Extract the part inside the parentheses using split
+        if "javascript:openonlinewindow" in href:
+            href = href.split("'")[1]  # Split by single quotes and take the part in between
+        matches_links.append(href.strip())  # Strip whitespaces
     return matches_links
+
 
 def main():
     client = httpx.Client()
