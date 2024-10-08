@@ -1,6 +1,6 @@
 # test-project
 # AutomationProject
-Install packages
-selectolax
-httpx
-rich
+# Install packages
+# selectolax
+# httpx
+# rich
